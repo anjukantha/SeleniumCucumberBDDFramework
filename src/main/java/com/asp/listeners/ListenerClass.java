@@ -14,10 +14,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.asp.annotations.FrameworkAnnotation;
 import com.asp.constants.FrameworkConstants;
 import com.asp.constants.TestNameManager;
-import com.asp.enums.CategoryType;
 import com.asp.reports.ExtentReport;
 import com.asp.utils.ScreenshotUtils;
 
@@ -88,18 +86,6 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 	public void onTestStart(ITestResult result) {
 		ExtentReport.createTest(result.getMethod().getMethodName());
 		FrameworkConstants.setTestName(result.getMethod().getMethodName());
-		try {
-			ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod()
-					.getAnnotation(FrameworkAnnotation.class).category());
-			ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
-					.getAnnotation(FrameworkAnnotation.class).author());
-		} catch (NullPointerException e) {
-			CategoryType[] ct = new CategoryType[1];
-			ct[0] = CategoryType.DEFAULTCATEGORY;
-			ExtentReport.addCategories(ct);
-			String[] author = { "Default Author" };
-			ExtentReport.addAuthors(author);
-		}
 		log(INFO, "Test: " + FrameworkConstants.getTestName() + " started");
 	}
 
