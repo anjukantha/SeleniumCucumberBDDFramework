@@ -189,7 +189,7 @@ public class BasePage {
 	 * @param by          By Locator of the webelement
 	 * @param elementname Name of the element that needs to be logged in the report.
 	 */
-	protected WebElement srollIntoView(By by, String elementname) {
+	protected WebElement scrollIntoView(By by, String elementname) {
 		WebElement element = DriverManager.getDriver().findElement(by);
 		((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
 		log(PASS, "Scrolled into visibility of " + elementname);
@@ -203,7 +203,7 @@ public class BasePage {
 	 * @param x
 	 * @param y
 	 */
-	protected void srollIntoView(int x, int y) {
+	protected void scrollIntoView(int x, int y) {
 		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(" + x + "," + y + ")");
 		log(PASS, "Scrolled by coordinates X: " + x + ", Y: " + y);
 	}

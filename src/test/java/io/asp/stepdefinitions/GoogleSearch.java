@@ -20,7 +20,7 @@ public class GoogleSearch {
 	@Given("user is on google search page")
 	public void user_is_on_google_search_page() {
 		Driver.initDriver();
-		DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL));
+		DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.GOOGLE_URL));
 		log(PASS, "User navigated to Google Page");
 	}
 
