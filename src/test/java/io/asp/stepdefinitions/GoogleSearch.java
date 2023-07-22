@@ -25,7 +25,12 @@ public class GoogleSearch {
 	}
 
 	@When("user inputs {string} on google")
-	public void user_inputs_cucumber_framework_on_google(String query) {
+	public void user_inputs_query_on_google(String query) {
+		gp.inputGoogleSearchQuery(query);
+	}
+
+	@When("user inputs data on google")
+	public void user_inputs_data_on_google(String query) {
 		gp.inputGoogleSearchQuery(query);
 	}
 
@@ -35,9 +40,14 @@ public class GoogleSearch {
 		gp.clickGoogleSearchBtn();
 	}
 
-	@Then("cucumber framework search results page displayed")
-	public void cucumber_framework_search_results_page_displayed() {
-		System.out.println("cucumber framework search results page displayed");
+	@Then("{string} search results page displayed")
+	public void cucumber_framework_search_results_page_displayed(String query) {
+		System.out.println(query + " search results page displayed");
+	}
+
+	@Then("data search results page displayed")
+	public void data_search_results_page_displayed(String query) {
+		System.out.println(query + " search results page displayed");
 	}
 
 }
