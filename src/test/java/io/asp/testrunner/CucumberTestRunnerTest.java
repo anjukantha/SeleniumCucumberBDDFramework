@@ -24,6 +24,7 @@ import io.cucumber.testng.TestNGCucumberRunner;
 				"html:target/cucumber-reports/cucumberReport.html",
 				"json:target/cucumber-reports/cucumberReport.json" }, // To generate different format of test reports
 		monochrome = true, // Display the console output in a proper readable format
+		// publish = true, // Used to publish the html report to cloud
 		dryRun = false) // to check if the mapping b/w feature file and step definitions file
 
 public class CucumberTestRunnerTest extends AbstractTestNGCucumberTests implements ITest {
@@ -69,7 +70,7 @@ public class CucumberTestRunnerTest extends AbstractTestNGCucumberTests implemen
 	 * @return a two dimensional array of scenarios features.
 	 */
 	@Override
-	@DataProvider
+	@DataProvider(parallel = true)
 	public Object[][] scenarios() {
 		if (testNGCucumberRunner == null) {
 			return new Object[0][0];
