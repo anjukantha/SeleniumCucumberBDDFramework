@@ -4,14 +4,11 @@ import static com.asp.enums.LogType.PASS;
 import static com.asp.reports.Logger.log;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.asp.driver.Driver;
 import com.asp.driver.DriverManager;
 import com.asp.enums.ConfigProperties;
 import com.asp.pages.DemoQAPage;
 import com.asp.utils.PropertyUtils;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,16 +16,6 @@ import io.cucumber.java.en.When;
 public class DemoQA {
 
 	DemoQAPage dp = new DemoQAPage();
-
-	@Before
-	public void setup() {
-		Driver.initDriver();
-	}
-
-	@After
-	public void quit() {
-		Driver.quitDriver();
-	}
 
 	@Given("user is on demoqa application")
 	public void user_is_on_demoqa_application() {

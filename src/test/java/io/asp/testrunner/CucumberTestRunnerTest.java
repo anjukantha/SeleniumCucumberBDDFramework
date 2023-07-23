@@ -19,7 +19,7 @@ import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
 
 @CucumberOptions(features = { "classpath:featureFiles" }, // Path of the feature files
-		glue = { "io/asp/stepdefinitions" }, // Path of the step definitions
+		glue = { "io/asp/stepdefinitions", "io/asp/hooks" }, // Path of the step definitions
 		tags = "not @RegressionTest or not @SmokeTest", plugin = { "pretty",
 				"html:target/cucumber-reports/cucumberReport.html",
 				"json:target/cucumber-reports/cucumberReport.json" }, // To generate different format of test reports
