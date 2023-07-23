@@ -21,7 +21,8 @@ import io.cucumber.testng.TestNGCucumberRunner;
 @CucumberOptions(features = { "classpath:featureFiles" }, // Path of the feature files
 		glue = { "io/asp/stepdefinitions" }, // Path of the step definitions
 		tags = "not @RegressionTest or not @SmokeTest", plugin = { "pretty",
-				"html:target/cucumber-reports/cucumberreport.html" }, // To generate different format of test reports
+				"html:target/cucumber-reports/cucumberReport.html",
+				"json:target/cucumber-reports/cucumberReport.json" }, // To generate different format of test reports
 		monochrome = true, // Display the console output in a proper readable format
 		dryRun = false) // to check if the mapping b/w feature file and step definitions file
 
@@ -42,14 +43,14 @@ public class CucumberTestRunnerTest extends AbstractTestNGCucumberTests implemen
 	@BeforeMethod
 	public void BeforeMethod(Method method, Object[] testData, ITestContext ctx) {
 		// Below code is update the test case name in TestNG.
-		// If condition is to set test name when using only dataProvider.
+		// If condition is used to set test name when using dataProvider.
 		if (testData.length > 0) {
 			testName.set(method.getName() + "_" + testData[0]);
 			ctx.setAttribute("testName", testName.get());
 		} else
 			ctx.setAttribute("testName", method.getName());
 	}
-	
+
 	@Override
 	public String getTestName() {
 		return testName.get();
