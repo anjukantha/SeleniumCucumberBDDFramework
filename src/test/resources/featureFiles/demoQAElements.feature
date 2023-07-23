@@ -1,6 +1,7 @@
 @DemoQA
 Feature: demoqa Elements page
 
+@SmokeTest
 Scenario: Input Only Full Name on Text Box
 
 	Given user is on demoqa application

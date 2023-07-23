@@ -1,12 +1,14 @@
 @googleSearch
 Feature: Google Search
 
+@SmokeTest
   Scenario: Search on Google with query = cucumber framework
     Given user is on google search page
     When user inputs "cucumber framework" on google
     And user clicks on search button
     Then "cucumber framework" search results page displayed
 
+@RegressionTest
   Scenario Outline: Search on Google with multiple data set
     Given user is on google search page
     When user inputs "<query>" on google
@@ -19,6 +21,7 @@ Feature: Google Search
       | Selenium Automation |
       | Cucumber Automation |
 
+@SmokeTest @RegressionTest
   Scenario: Search on Google with specified data
     Given user is on google search page
     When user inputs data on google
