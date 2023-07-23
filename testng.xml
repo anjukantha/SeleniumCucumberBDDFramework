@@ -5,7 +5,7 @@
 	</listeners>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="io.asp.testrunner.CucumberTestRunner" />
+			<class name="io.asp.testrunner.CucumberTestRunnerTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

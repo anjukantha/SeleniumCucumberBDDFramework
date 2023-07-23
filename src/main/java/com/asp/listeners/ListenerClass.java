@@ -84,8 +84,9 @@ public class ListenerClass implements ITestListener, ISuiteListener {
 	 */
 	@Override
 	public void onTestStart(ITestResult result) {
-		ExtentReport.createTest(result.getMethod().getMethodName());
-		FrameworkConstants.setTestName(result.getMethod().getMethodName());
+		ExtentReport.createTest(result.getTestContext().getAttribute("testName").toString());
+		//ExtentReport.createTest(result.getMethod().getMethodName());
+		FrameworkConstants.setTestName(result.getTestContext().getAttribute("testName").toString());
 		log(INFO, "Test: " + FrameworkConstants.getTestName() + " started");
 	}
 
