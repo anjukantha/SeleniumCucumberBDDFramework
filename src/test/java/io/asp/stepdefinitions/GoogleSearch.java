@@ -9,6 +9,8 @@ import com.asp.enums.ConfigProperties;
 import com.asp.pages.GoogleSearchPage;
 import com.asp.utils.PropertyUtils;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,9 +19,18 @@ public class GoogleSearch {
 
 	GoogleSearchPage gp = new GoogleSearchPage();
 
+	@Before
+	public void setup() {
+		Driver.initDriver();
+	}
+
+	@After
+	public void quit() {
+		Driver.quitDriver();
+	}
+
 	@Given("user is on google search page")
 	public void user_is_on_google_search_page() {
-		Driver.initDriver();
 		DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.GOOGLE_URL));
 		log(PASS, "User navigated to Google Page");
 	}
@@ -36,7 +47,6 @@ public class GoogleSearch {
 
 	@When("user clicks on search button")
 	public void user_clicks_on_search_button() {
-		System.out.println("user clicks on search button");
 		gp.clickGoogleSearchBtn();
 	}
 

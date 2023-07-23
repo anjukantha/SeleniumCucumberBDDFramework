@@ -10,6 +10,8 @@ import com.asp.enums.ConfigProperties;
 import com.asp.pages.DemoQAPage;
 import com.asp.utils.PropertyUtils;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,9 +20,18 @@ public class DemoQA {
 
 	DemoQAPage dp = new DemoQAPage();
 
+	@Before
+	public void setup() {
+		Driver.initDriver();
+	}
+
+	@After
+	public void quit() {
+		Driver.quitDriver();
+	}
+
 	@Given("user is on demoqa application")
 	public void user_is_on_demoqa_application() {
-		Driver.initDriver();
 		DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.DEMOQA_URL));
 		log(PASS, "User navigated to Demo QA page");
 	}
