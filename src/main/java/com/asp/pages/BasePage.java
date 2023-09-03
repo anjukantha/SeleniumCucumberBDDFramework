@@ -224,5 +224,12 @@ public class BasePage {
 		log(PASS, "Highlighted the <b>" + elementname);
 		return element;
 	}
-
+	
+	private void setup(int a, double b) {
+	}
+	
+	void call() {
+		setup(1, 2);
+	}
+	
 }

@@ -8,8 +8,6 @@ import io.cucumber.java.Scenario;
 
 public class Hooks {
 	
-	CucumberListerners s = new CucumberListerners();
-
 	@Before
 	public void setup(Scenario scenario) {
 		Driver.initDriver();
@@ -18,6 +16,6 @@ public class Hooks {
 	@After
 	public void quit() {
 		Driver.quitDriver();
-		
 	}
+	
 }
